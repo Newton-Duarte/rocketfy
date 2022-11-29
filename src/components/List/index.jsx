@@ -3,7 +3,7 @@ import { Card } from '../Card';
 
 import * as S from './styles'
 
-export function List({ data }) {
+export function List({ index: listIndex, data }) {
   return (
     <S.Container done={data.done}>
       <header>
@@ -15,8 +15,8 @@ export function List({ data }) {
         )}
       </header>
       <ul>
-        {data.cards.map((card) => (
-          <Card key={card.id} data={card} />
+        {data.cards.map((card, index) => (
+          <Card key={card.id} listIndex={listIndex} index={index} data={card} />
         ))}
       </ul>
     </S.Container>
